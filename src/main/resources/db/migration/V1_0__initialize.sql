@@ -1,0 +1,14 @@
+create table ADDRESS (PLZ integer(5) not null, LATITUDE double precision, LONGITUDE double precision, primary key (PLZ));
+create table CAR (ID bigint not null auto_increment, HSN varchar(4), TSN varchar(3), VIN varchar(17), primary key (ID));
+create table SEARCH_REQUEST (ID bigint not null auto_increment, CREATED_DATE datetime not null, UPDATED_DATE datetime not null, SERVICES varchar(255) not null, ADDRESS_PLZ integer not null, CAR_ID bigint, USER_ID bigint, primary key (ID));
+create table USER (ID bigint not null auto_increment, CREATED_DATE datetime not null, UPDATED_DATE datetime not null, EMAIL varchar(50), TEL_NUMBER bigint not null, primary key (ID));
+create table WORKSHOP (ID bigint not null auto_increment, EMAIL varchar(50) not null, PASSWORD varchar(50) not null, SERVICES varchar(255) not null, TEL_NUMBER bigint not null, ADDRESS_PLZ integer not null, primary key (ID));
+alter table CAR add constraint CAR_VIN unique (VIN);
+alter table USER add constraint USER_EMAIL unique (EMAIL);
+alter table USER add constraint USER_TEL_NUMBER unique (TEL_NUMBER);
+alter table WORKSHOP add constraint WORKSHOP_EMAIL unique (EMAIL);
+alter table WORKSHOP add constraint WORKSHOP_TEL_NUMBER unique (TEL_NUMBER);
+alter table SEARCH_REQUEST add constraint SEARCH_REQUEST_ADDRESS_PLZ_ADDRESS_PLZ foreign key (ADDRESS_PLZ) references ADDRESS (PLZ);
+alter table SEARCH_REQUEST add constraint SEARCH_REQUEST_CAR_ID_CAR_ID foreign key (CAR_ID) references CAR (ID);
+alter table SEARCH_REQUEST add constraint SEARCH_REQUEST_USER_ID_USER_ID foreign key (USER_ID) references USER (ID);
+alter table WORKSHOP add constraint WORKSHOP_ADDRESS_PLZ_ADDRESS_PLZ foreign key (ADDRESS_PLZ) references ADDRESS (PLZ);

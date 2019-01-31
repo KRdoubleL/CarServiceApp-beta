@@ -1,0 +1,45 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@material-ui/core": "^3.8.1",
+    "@material-ui/icons": "^3.0.1",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.6",
+    "eslint": "^5.7.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-chai-expect": "^2.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.25.1",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "prop-types": "latest",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "styled-components": "^4.1.2"
+  }
+}
